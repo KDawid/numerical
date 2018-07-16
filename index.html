@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head><title>Nemlineáris iterációs módszerek</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/function.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/chord_method.js"></script>
+    <script src="js/secant_method.js"></script>
+    <script src="js/newton_method.js"></script>
+</head>
+<body>
+    <h1 align="center">Nemlineáris iterációs módszerek</h1>
+    <p align="center">Pick your function:</p>
+    <table>
+        <tr>
+            <td><button onclick="draw(fun1)"><img src="img/cica.jpg" height="60" width="100"></button></td>
+            <td><button onclick="draw(fun2)"><img src="img/kutya.jpg" height="60" width="100"></button></td>
+            <td><button onclick="draw(fun3)"><img src="img/hörcsög.jpg" height="60" width="100"></button></td>
+            <td><button onclick="draw(fun4)"><img src="img/nyuszi.jpg" height="60" width="100"></button></td>
+            <td><button onclick="draw(fun5)"><img src="img/malac.jpg" height="60" width="100"></button></td>
+        </tr>
+    </table>
+    <canvas id="canvas" width="1000" height="500"></canvas>
+    <form action="index.html">
+        <table>
+            <tr>
+                <td>X Scale:</td>
+                <td><input id="xscale" type="range" value="50" min="50" max="1000"></td>
+                <td width="100"></td>
+                <td>X<sub>1</sub> = </td>
+                <td><input id="dot1" type="range" min="-500" max="500" step="any" value="-100" style="width:500px"></td>
+            </tr>
+            <tr>
+                <td>Y Scale:</td>
+                <td><input id="yscale" type="range" value="50" min="1" max="150"></td>
+                <td width="100"></td>
+                <td>X<sub>2</sub> = </td>
+                <td><input id="dot2" type="range" min="-500" max="500" step="any" value="100" style="width:500px"></td>
+            </tr>
+        </table>
+    </form>
+    <p align="center">Approximation limit:
+        <select id="approx">
+            <option value="0.01">0.01</option>
+            <option value="0.001">0.001</option>
+            <option value="0.0001">0.0001</option>
+            <option value="0.00001">0.00001</option>
+        </select>
+        Speed: <select id="speed">
+            <option value="2000">slow</option>
+            <option value="1000">moderate</option>
+            <option value="500">fast</option>
+            <option value="10">maximum</option>
+        </select>
+    </p>
+    <table>
+        <tr>
+            <td align="center">Húrmódszer</td>
+            <td align="center">Szelőmódszer</td>
+            <td align="center">Newton-módszer</td>
+        </tr>
+        <tr>
+            <td><p align="center"><button id="chordmethod" onclick="chordMethod()" disabled>Húrmódszer indítása</button></p></td>
+            <td><p align="center"><button id="secantmethod" onclick="secantMethod()" disabled>Szelőmódszer indítása</button></p></td>
+            <td><p align="center"><button id="newtonmethod" onclick="newtonMethod()" disabled>Newton-módszer indítása</button></p></td>
+        </tr>
+        <tr>
+            <td><p align="center"><button id="autochord" onclick="automaticChordMethod()" disabled>Automatikus húrmódszer</button></p></td>
+            <td><p align="center"><button id="autosecant" onclick="automaticSecantMethod()" disabled>Automatikus szelőmódszer</button></p></td>
+            <td><p align="center"><button id="autonewton" onclick="automaticNewtonMethod()" disabled>Automatikus Newton-módszer</button></p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><p align="center"><button id="stop" onclick="stop()" disabled>Stop</button></p></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <p id="dot1info"></p>
+    <p id="dot2info"></p>
+    <p id="zeroinfoheader"></p>
+    <ol id="zeroinfo"></ol>
+    </br></br></br></br></br></br></br></br>
+</body>
+</html>

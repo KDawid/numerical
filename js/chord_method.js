@@ -1,7 +1,7 @@
 var zero
 var end = false
 var autoRun = false
-var SEMAPHORE = {UP:0, DOWN:1}
+var SEMAPHORE = { UP: 0, DOWN: 1 }
 var interval
 
 function automaticChordMethod() {
@@ -12,7 +12,6 @@ function automaticChordMethod() {
 
     interval = setInterval(() => {
         chordMethod()
-        
         if(end) {
             stop()
         }
@@ -21,7 +20,6 @@ function automaticChordMethod() {
         }, parseInt($("speed").value)/2)
     }, parseInt($("speed").value))
     autoRun = false
-    
 }
 
 function chordMethod() {

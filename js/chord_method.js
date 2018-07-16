@@ -1,7 +1,7 @@
 var zero
 var end = false
 var autoRun = false
-var SEMAPHORE = {UP:0, DOWN:1}
+var SEMAPHORE = { UP: 0, DOWN: 1 }
 var interval
 
 function automaticChordMethod() {
